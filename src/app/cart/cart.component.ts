@@ -46,9 +46,29 @@ export class CartComponent implements OnInit {
         "pPrice":this.cartData[i].pPrice,
         "pQuantity":1,
         "pTotal":this.cartData[i].pPrice,
+        "pId":this.cartData[i].pId,
       })
 
       this.tp += parseInt(this.cartData[i].pPrice); 
     }
+  }
+
+  deleteCart(id:any){
+    const pId = this.cartItems[id].pId;
+    console.log(pId);
+
+    for (let i = 0; i < this.data.length; i++){
+      if(this.data[i].pId == pId){
+        this.data[i].cStatus = false;
+      }
+    }
+    this.tp = this.tp - parseInt(this.cartItems[id].pTotal);
+    this.cartItems = this.cartItems.filter((c:any)=>{
+      return c.pId != pId
+    })
+    if(this.cartItems.length==0){
+      this.displayData = false;
+    }
+    this._orderService.updateOrder(this.data);
   }
 }
