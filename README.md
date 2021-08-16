@@ -6,8 +6,6 @@
 
 ![Alternate](./images/22222.png)
 
-![Alternate](./images/33333.png)
-
 ![Alternate](./images/44444.png)
 
 ![Alternate](./images/55555.png)
