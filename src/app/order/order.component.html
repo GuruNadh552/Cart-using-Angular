@@ -1,0 +1,26 @@
+<h1 class="m-3 text-center">Products</h1>
+<div class="alert alert-success" *ngIf="alert">
+    {{msg}}
+</div>
+<div class="row">
+    <div class="col-sm-3 mb-2" *ngFor="let item of data;let i = index">
+        <div class="card">
+            <div class="card-header bg-white">
+                <img [src]="item.pImage" width="200" height="200"/>
+            </div>
+            <div class="card-body">
+                <div class="product-name font-weight-bold p-1">{{item.pName}}</div>
+                <div class="product-description p-1">{{item.pDesc}}</div>
+                <div class="row">
+                    <div class="col-sm-6 text-center mt-2">
+                         <div class="product-price font-weight-bold">Rs.{{item.pPrice}}</div>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-primary" (click)="addItem(i)" *ngIf='!item.cStatus'>Add Item</button>
+                        <button class="btn btn-danger" (click)="removeItem(i)" *ngIf='item.cStatus'>Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

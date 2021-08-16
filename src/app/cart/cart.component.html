@@ -1,0 +1,55 @@
+<h2 class="m-3">CART</h2>
+<div *ngIf="displayData">
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <td>Delete</td>
+            <td>Image</td>
+            <td>Product</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Total</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of cartItems;let i = index">
+            <td>Delete</td>
+            <td><img [src]="product.pImage" width="100" height="100"/></td>
+            <td>{{product.pName}}</td>
+            <td>{{product.pPrice}}</td>
+            <td>
+                <div class="bordered">
+                    <button class="btn btn-info" (click)="decreaseQuantity(i)">-</button>
+                    {{product.pQuantity}}
+                    <button class="btn btn-info" (click)="increaseQuantity(i)">+</button>
+                </div>
+            </td>
+            <td>{{product.pTotal}}</td>
+        </tr>
+        <tr>
+            <td colspan="5">Delete</td>
+            <td><button class="btn btn-warning">Update Cart</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="card" style="width: 500px">
+    <div class="card-header">CART TOTAL</div>
+    <div class="card-body">
+        <table class="table table-bordered text-center">
+            <tr>
+                <td style="background-color:#f7f7f7;" class="font-weight-bold">Subtotal</td>
+                <td>{{tp}}</td>
+            </tr>
+            <tr>
+                <td style="background-color:#f7f7f7;" class="font-weight-bold">Total</td>
+                <td class="font-weight-bold">{{tp}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-warning">PROCEED TO CHECKOUT</button>
+    </div>
+</div>
+</div>
+<div class="h3 text-danger" *ngIf="!displayData">No Items Available in Cart</div>
