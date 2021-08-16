@@ -1,5 +1,9 @@
 # CART USING ANGULAR
 
+# Demo Pics
+
+[!Alternate](./images/11111.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
 
 ## Development server
